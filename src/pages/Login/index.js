@@ -10,6 +10,8 @@ const Login = () => {
 	const [password, setPassword] = useState('');
 	const dispatch = useDispatch();
 
+	console.log(12321312);
+
 	function handleSubmit(e){
 		e.preventDefault();
 		dispatch({
