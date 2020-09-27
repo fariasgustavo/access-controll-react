@@ -1,8 +1,10 @@
 import { all, takeLatest } from 'redux-saga/effects';
-import { submittLogin } from './ducks/login/sagas';
+import { submitLogin } from './ducks/login/sagas';
+import { fetchUsers } from './ducks/users/sagas';
 
 export default function* root(){
     yield all([
-        takeLatest('LOGIN', submittLogin),
+        takeLatest('SUBMIT_LOGIN', submitLogin),
+        takeLatest('FETCH_USERS', fetchUsers),
     ]);
 }

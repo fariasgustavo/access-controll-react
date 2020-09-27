@@ -1,24 +1,27 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { FormBox, FieldsBox, SvgIcon, Link } from "../../styles";
 import UserIcon from "../../assets/UserIcon.js";
 
-const Login = () => {
+const Login = props => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const dispatch = useDispatch();
-
-	console.log(12321312);
+	const history = useHistory();
 
 	function handleSubmit(e){
 		e.preventDefault();
 		dispatch({
-			type: 'LOGIN', 
+			type: 'SUBMIT_LOGIN', 
 			payload: {
 				email,
 				password
+			},
+			onSuccess: () => {
+				history.push('/dashboard')
 			}
 		});
 	}
